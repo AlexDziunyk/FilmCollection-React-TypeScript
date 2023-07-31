@@ -1,0 +1,31 @@
+.film {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px 12px 0px 12px;
+    border-radius: 34px;
+    background: rgba(128, 128, 128, 0.30);
+    backdrop-filter: blur(50px);
+    transition: 0.2s;
+}
+
+.film:hover {
+    background: rgba(128, 128, 128, 0.8);
+}
+
+.film__img {
+    border-radius: 34px;
+    object-fit: cover;
+    width: 230px;
+    height: 320px;
+}
+
+.film__title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0;
+    padding: 10px 0px;
+}
