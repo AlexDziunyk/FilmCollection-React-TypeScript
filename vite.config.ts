@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/FilmCollection-React-TypeScript/",
   plugins: [react()],
-  base: "/FilmCollection-React-TypeScript"
 })

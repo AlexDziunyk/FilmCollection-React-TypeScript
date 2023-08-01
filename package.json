@@ -1,9 +1,9 @@
 {
+  "homepage": "https://AlexDziunyk.github.io/FilmCollection-React-TypeScript",
   "name": "reactts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://AlexDziunyk.github.io/FilmCollection-React-TypeScript",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
