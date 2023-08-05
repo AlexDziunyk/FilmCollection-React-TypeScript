@@ -1,22 +1,41 @@
-import icon from '../assets/icon.png';
-import avatar from '../assets/avatar.png';
+import {useState} from 'react';
+
 import '../styles/Navbar.css';
+import { NavLink, Link } from 'react-router-dom';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { RxCross1 } from 'react-icons/rx';
 
-interface INavbarProps {
-  handleChange: (text: string) => void;
-  search: string;
-}
+function Navbar() {
 
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
-export default function Navbar({handleChange, search}: INavbarProps) {
   return (
-    <nav>
-        <div className='nav__logoBlock'>
-            <img className='nav__logo' src={icon} alt='logo'></img>
-            <p className='nav__title'>Movies</p>
-        </div>
-        <input value={search} onChange={(e) => handleChange(e.target.value)} type='text' className='nav__search' placeholder='Search'></input>
-        <button className='nav__button'><img src={avatar} alt='avatar'></img></button>
+    <nav className="navbar">
+      <div className='navbar__container'>
+        <Link className='navbar__logo' to="/">IMGB</Link>
+          <ul className='navbar__sections'>
+              <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/popular">Popular</NavLink>
+              <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/top_rated">Top Rated</NavLink>
+              <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/upcoming">Upcoming</NavLink>
+          </ul>
+          <div className="navbar__burger" onClick={() => setIsOpened(!isOpened)}>
+            {isOpened ? 
+            <>
+              <RxCross1 size={25} />
+              <ul className='navbar__menu'>
+                <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/popular">Popular</NavLink>
+                <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/top_rated">Top Rated</NavLink>
+                <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/upcoming">Upcoming</NavLink>
+              </ul>
+            </>
+            : 
+            <GiHamburgerMenu  size={25}/>
+            }
+          </div>
+      </div>
     </nav>
   )
 }
+
+export default  Navbar;
+

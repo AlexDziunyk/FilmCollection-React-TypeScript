@@ -1,31 +1,47 @@
-.film {
-    cursor: pointer;
-    position: relative;
-    display: inline-flex;
+.film__container {
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.film__info {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 12px 12px 0px 12px;
-    border-radius: 34px;
-    background: rgba(128, 128, 128, 0.30);
-    backdrop-filter: blur(50px);
-    transition: 0.2s;
+    gap: 0.7em;
+    padding: 10px;
 }
 
-.film:hover {
-    background: rgba(128, 128, 128, 0.8);
-}
-
-.film__img {
-    border-radius: 34px;
-    object-fit: cover;
-    width: 230px;
-    height: 320px;
+.film__rating {
+    display: flex;
+    gap: 5px;
 }
 
 .film__title {
-    text-align: center;
-    font-size: 1.4rem;
-    margin: 0;
-    padding: 10px 0px;
+    height: 50px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+
+.film__image {
+    cursor: pointer;
+    width: 100%;
+    transition: 0.5s;
+    border-radius: 5px 5px 0 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.film__image:hover {
+    opacity: 0.8;
+}
+
+.film__like {
+    cursor: pointer;
+    color: red;
 }

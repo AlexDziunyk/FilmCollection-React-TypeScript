@@ -1,98 +1,70 @@
-import {useState, useEffect} from 'react';
-import left from '../assets/arrowLeft.png';
-import right from '../assets/arrowRight.png';
-
 import Film from './Film';
-import '../styles/FilmCollection.css'
+import FilmSkeleton from './FilmSkeleton';
+import '../styles/FilmCollection.css';
+import {useState, useEffect} from 'react';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-interface IFilmColProps {
-  search: string;
+const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2RlMzJkNTE2ZjA4NGJkYzk4NmQ1NjI2ZWJlYmFiNyIsInN1YiI6IjYxYjRkOTY5ZjkxODNhNzdhYmIwNzRhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.87GZb5AJ20n9hHa3N7Nlg3LA6nPpIWkaZJQjta9c7rA'
+    }
+};
+
+interface IFilmAPI {
+    backdrop_path?: string;
+    id?: string;
+    overview?: string;
+    poster_path?: string;
+    release_date?: string;
+    title?: string;
+    name?: string;
+    vote_average?: number;
 }
 
-interface IMovie {
-  id: string;
-  originalTitleText: {
-    text: string;
-  };
-  primaryImage: {
-    url: string;
-  };
-  _id: string;
+interface IFilmProps {
+    title?: string;
+    query?: string;
+    showType?: string;
 }
 
+function FilmCollection({title, query, showType}: IFilmProps) {
 
-export default function FilmCollection({search}: IFilmColProps) {
-
-  const [data, setData] = useState<IMovie[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const fetchingData = async () => {
-    setIsLoading(true);
-    const query = 'https://moviesdatabase.p.rapidapi.com/titles/';
-    const url = search ? `${query}search/keyword/${search}` : `${query}x/upcoming`;
-    const options = {
-      method: 'GET',
-      headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_COLLECTION_KEY,
-      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-      }
-    };
-    try {
-      const response = await fetch(url, options);
-      const json = await response.json();
-      setData(json.results);
-    } catch (error) {
-      console.log(error);
+    const [data, setData] = useState<IFilmAPI[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const getFilms = async () => {
+        setIsLoading(true);
+        const url = `https://api.themoviedb.org/3/${showType ? showType : 'movie'}/${query}?language=en-US&page=1`;
+        try {
+            const response = await fetch(url, options);
+            const json = await response.json();
+            setData(json.results);
+        } catch (error) {
+            console.log(error);
+        }
+        setIsLoading(false);
     }
-    setIsLoading(false);
-  };
 
-  useEffect(() => {
-    fetchingData();
-  }, [search]);
-
-  const [width, setWidth] = useState<number>(0);
-  const [max, setMax] = useState<number>(0);
-  
-
-  const handleClickLeft = (): void => {
-    if(width > 254) {
-      setWidth(prev => prev - 286);
-    } else if(width === 254) {
-      setWidth(0);
-    }
-  }
-
-  const handleClickRight = (): void => {
-    if(width >= 254 && width < max) {
-      setWidth(prev => prev + 286);
-    } else if(width < 254 && width < max) {
-      setWidth(prev => prev + 254);
-    }
-  }
-
-  useEffect(() => {
-    setMax((data.length - 1) * 254);
-    setWidth(0);
-  }, [data])
+    useEffect(() => {
+        getFilms();
+    }, [query])
 
   return (
     <div className='collection'>
-      <button onClick={handleClickLeft} className='collection__left'><img src={left} alt='left'></img></button>
-      <div className='collection__wrapper'>
-        <div className='collection__buttons'>
-          <button onClick={handleClickLeft} className='collection__left small'><img src={left} alt='left'></img></button>
-          <button onClick={handleClickRight} className='collection__right small'><img src={right} alt='right'></img></button>
+        <h1 className='collection__title'>{title}</h1>
+        <div className='colection__container'>
+            {isLoading ? 
+                <FilmSkeleton cards={20}/>
+                : 
+                data.map(({id, title, name, poster_path, vote_average}) => {
+                    return <Film key={id} title={title || name} poster={poster_path} rating={vote_average}/>
+                })
+            }
         </div>
-        <div style={{right: width}} className='collection__films'>
-          {(data.length > 0) && data.map((item) => {
-            return <Film key={item.id} title={item.originalTitleText.text} img={item.primaryImage?.url}/>
-          })}
-          {isLoading && <p className='collection__status'>Loading...</p>}
-          {(!isLoading && data.length === 0 && search.length > 0) && <p className='collection__status'>Not found!</p>}
-        </div>
-      </div>
-      <button onClick={handleClickRight} className='collection__right'><img src={right} alt='right'></img></button>
     </div>
   )
 }
+
+
+export default FilmCollection;
