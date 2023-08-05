@@ -6,13 +6,13 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/FilmCollection-React-TypeScript" element={ <Root />} errorElement={ <ErrorPage /> }>
-    <Route path="" element={ <FilmCollection title="On The Air" query="on_the_air" showType="tv" /> } />
+  <Route path="/" element={ <Root />} errorElement={ <ErrorPage /> }>
+    <Route index element={ <FilmCollection title="On The Air" query="on_the_air" showType="tv" /> } />
     <Route path="popular" element={ <FilmCollection title="Popular" query="popular" /> } />
     <Route path="top_rated" element={ <FilmCollection title="Top Rated"  query="top_rated" /> } />
     <Route path="upcoming" element={ <FilmCollection title="Upcoming"  query="upcoming" /> } />
   </Route>
-))
+));
 
 function App() {
   
