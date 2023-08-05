@@ -8,7 +8,7 @@ const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2RlMzJkNTE2ZjA4NGJkYzk4NmQ1NjI2ZWJlYmFiNyIsInN1YiI6IjYxYjRkOTY5ZjkxODNhNzdhYmIwNzRhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.87GZb5AJ20n9hHa3N7Nlg3LA6nPpIWkaZJQjta9c7rA'
+      Authorization: `Bearer ${import.meta.env.VITE_BEARER_TOKEN}`
     }
 };
 
