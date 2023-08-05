@@ -6,8 +6,8 @@ interface ISkeletonProps {
 
 function FilmSkeleton({cards}: ISkeletonProps) {
     return (
-        Array(cards).fill(0).map((item: number, i: number) =>
-            <div key={i} className='film__container'>
+        Array(cards).fill(0).map((item: number, i: number, arr: number[]) =>
+            <div key={arr.indexOf(item) + i} className='film__container'>
                 <SkeletonTheme baseColor='#202020' highlightColor='#444'>  
                     <Skeleton height={340}/>
                     <div className='film__info'>
