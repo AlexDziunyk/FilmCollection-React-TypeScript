@@ -22,7 +22,7 @@ function Film({title, poster, rating}: IFilmProps) {
     
     return (
         <div className='film__container'>
-            <img className='film__image' src={`http://image.tmdb.org/t/p/original/${poster}`} alt='img'></img>
+            <img className='film__image' src={`https://image.tmdb.org/t/p/original/${poster}`} alt='img'></img>
             <div className='film__info'>
                 <div className='film__rating'>
                     <AiFillStar color={'#f5c518'}/>

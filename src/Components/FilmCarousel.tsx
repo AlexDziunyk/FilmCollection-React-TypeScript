@@ -61,7 +61,7 @@ function FilmCarousel() {
             return (
               <div key={id} className='carousel__container'>
                 <div className='carousel__image'>
-                  <img src={`http://image.tmdb.org/t/p/original/${backdrop_path}`} alt='img'></img>
+                  <img src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt='img'></img>
                 </div>
                 <div className='carousel__info'>
                   <h1 className='carousel__title'>{title || name}</h1>
