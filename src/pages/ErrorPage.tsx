@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, useRouteError  } from 'react-router-dom';
+import { isRouteErrorResponse, useRouteError, Link } from 'react-router-dom';
 import '../styles/ErrorPage.css';
 
 
@@ -14,13 +14,15 @@ function ErrorPage() {
                 <p className='error__code'>
                     <i>{error.status}</i>
                 </p>
+                <Link to='/' className='error__button'>Return Home</Link>
             </div>
         )
     } else {
         return (
-            <div>
-                <h1>Oops!</h1>
-                <p>Sorry, an unexpected error has occured.</p>
+            <div className='error__container'>
+                <h1 className='error__oops'>Oops!</h1>
+                <p className='error__message'>Sorry, an unexpected error has occured.</p>
+                <Link to='/' className='error__button'>Return Home</Link>
             </div>
         )
     }

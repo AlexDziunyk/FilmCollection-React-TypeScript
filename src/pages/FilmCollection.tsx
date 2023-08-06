@@ -1,5 +1,5 @@
-import Film from './Film';
-import FilmSkeleton from './FilmSkeleton';
+import Film from '../Components/Film';
+import FilmSkeleton from '../Components/FilmSkeleton';
 import '../styles/FilmCollection.css';
 import {useState, useEffect} from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';

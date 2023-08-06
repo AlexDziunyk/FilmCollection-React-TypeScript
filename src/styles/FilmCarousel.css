@@ -5,6 +5,7 @@
 }
 
 .carousel__image {
+    
     position: relative;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -26,13 +27,14 @@
 
 .carousel__image img {
     object-fit: cover;
-    max-height: 50em;
+    max-height: 45em;
     min-height: 30em;
     object-position: 50% 20%;
 }
 
 
 .carousel__info {
+    
     display: grid;
     position: absolute;
     top: 40%;

@@ -1,7 +1,7 @@
 import './App.css'
-import FilmCollection from './Components/FilmCollection';
+import FilmCollection from './pages/FilmCollection';
 import Root from './Components/Root';
-import ErrorPage from './Components/ErrorPage';
+import ErrorPage from './pages/ErrorPage';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 
 

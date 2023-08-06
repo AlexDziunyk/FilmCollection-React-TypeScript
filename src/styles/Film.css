@@ -1,7 +1,7 @@
 .film__container {
     background-color: #1a1a1a;
     color: white;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
 }
 
 .film__info {

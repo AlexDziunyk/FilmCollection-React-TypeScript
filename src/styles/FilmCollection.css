@@ -15,7 +15,7 @@
 
 .colection__container {
     display: grid;
-    gap: 1em;
+    gap: 0.5em;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     padding: 1em 0;
 }
