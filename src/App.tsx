@@ -11,7 +11,7 @@ import './App.css'
 const router = createBrowserRouter(createRoutesFromElements(
   <>
     <Route path="/" element={ <Root />} errorElement={ <ErrorPage /> }>
-      <Route index element={ <MainCollection title="Now Playing" query="now_playing" /> } />
+      <Route index element={ <MainCollection title="Now Playing" query="now_playing" showType='movie'/> } />
       <Route path="/popular" element={ <FilmCollection title="Popular" query="popular" showType='movie' /> } />
       <Route path="/top_rated" element={ <FilmCollection title="Top Rated"  query="top_rated" showType='movie' /> } />
       <Route path="/upcoming" element={ <FilmCollection title="Upcoming"  query="upcoming" showType='movie' /> } />

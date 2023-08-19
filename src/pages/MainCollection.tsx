@@ -33,7 +33,7 @@ function MainCollection({title, query, showType}: IFilmProps) {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const getFilms = async () => {
         setIsLoading(true);
-        const url = `https://api.themoviedb.org/3/${showType ? showType : 'movie'}/${query}?language=en-US&page=1`;
+        const url = `https://api.themoviedb.org/3/${showType}/${query}?language=en-US&page=1`;
         try {
             const response = await fetch(url, options);
             const json = await response.json();
