@@ -14,20 +14,17 @@ const options = {
 };
 
 interface IFilmAPI {
-    backdrop_path?: string;
-    id?: string;
-    overview?: string;
-    poster_path?: string;
-    release_date?: string;
-    title?: string;
-    name?: string;
-    vote_average?: number;
+    id: string;
+    poster_path: string;
+    title: string;
+    name: string;
+    vote_average: number;
 }
 
 interface IFilmProps {
-    title?: string;
-    query?: string;
-    showType?: string;
+    title: string;
+    query: string;
+    showType: string;
 }
 
 function MainCollection({title, query, showType}: IFilmProps) {
