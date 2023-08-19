@@ -9,7 +9,7 @@ function FilmSkeleton({cards}: ISkeletonProps) {
         Array(cards).fill(0).map((item: number, i: number, arr: number[]) =>
             <div key={arr.indexOf(item) + i} className='film__container'>
                 <SkeletonTheme baseColor='#202020' highlightColor='#444'>  
-                    <Skeleton height={340}/>
+                    <Skeleton height={340} width={210}/>
                     <div className='film__info'>
                         <div className='film__rating'>
                             <Skeleton height={20} width={25}/>

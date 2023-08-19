@@ -56,7 +56,7 @@ function FilmCarousel() {
     <>
       {isLoading ? <CarouselSkeleton />
       :
-      <Carousel infiniteLoop={true} showIndicators={false} autoPlay={true} showStatus={false} showThumbs={false}>
+      <Carousel interval={5000} infiniteLoop={true} showIndicators={false} autoPlay={true} showStatus={false} showThumbs={false}>
           {data.map(({id, backdrop_path, title, vote_average, overview, name}) => {
             return (
               <div key={id} className='carousel__container'>

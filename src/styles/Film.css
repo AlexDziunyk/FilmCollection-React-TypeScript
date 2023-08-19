@@ -2,6 +2,7 @@
     background-color: #1a1a1a;
     color: white;
     border-radius: 5px;
+    max-width: 250px;
 }
 
 .film__info {
@@ -26,6 +27,7 @@
 }
 
 .film__image {
+    max-width: 250px;
     cursor: pointer;
     width: 100%;
     transition: 0.5s;

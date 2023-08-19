@@ -17,6 +17,7 @@ function Navbar() {
               <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/popular">Popular</NavLink>
               <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/top_rated">Top Rated</NavLink>
               <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/upcoming">Upcoming</NavLink>
+              <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/favorite">Favorite</NavLink>
           </ul>
           <div className="navbar__burger" onClick={() => setIsOpened(!isOpened)}>
             {isOpened ? 
@@ -26,6 +27,7 @@ function Navbar() {
                 <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/popular">Popular</NavLink>
                 <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/top_rated">Top Rated</NavLink>
                 <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/upcoming">Upcoming</NavLink>
+                <NavLink className={({isActive}) => isActive ? "navlink active-link" : 'navlink'} to="/favorite">Favorite</NavLink>
               </ul>
             </>
             : 

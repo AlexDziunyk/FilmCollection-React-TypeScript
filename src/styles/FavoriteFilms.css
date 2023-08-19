@@ -1,23 +1,19 @@
-.collection {
+.fav__collection {
     max-width: 1440px;
 	padding: 1em;
     margin: 0 auto;
 }
 
-.collection__title {
+.fav__title {
     color: white;
     font-size: 2rem;
     font-weight: 700;
     text-align: center; 
     margin-top: 0.5em;
-    margin-bottom: 1em;   
+    margin-bottom: 1em;  
 }
 
-.collection__wrapper {
-    margin: 0 auto;
-}
-
-.colection__container {
+.fav__container {
     padding: 1em 0;
     --grid-layout-gap: 0.5em;
     --grid-column-count: 6;
@@ -34,4 +30,5 @@
     grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
     grid-gap: var(--grid-layout-gap);
     justify-items: center;
+
 }
